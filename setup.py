@@ -35,7 +35,6 @@ if os.environ.get("DEPENDENCY_INJECTOR_DEBUG_MODE") == "1":
     defined_macros["CYTHON_TRACE_NOGIL"] = 1
     defined_macros["CYTHON_CLINE_IN_TRACEBACK"] = 1
 
-
 setup(name="dependency-injector",
       version=version,
       description="Dependency injection framework for Python",
@@ -54,7 +53,7 @@ setup(name="dependency-injector",
           "": "src",
       },
       package_data={
-          "dependency_injector": ["*.pxd", "*.pyi", "py.typed"],
+          "dependency_injector": ["*.pxd", "*.pyi", "py.typed", "README.md"],
       },
       ext_modules=[
           Extension("dependency_injector.containers",
@@ -114,6 +113,7 @@ setup(name="dependency-injector",
           "Programming Language :: Python :: 3.9",
           "Programming Language :: Python :: 3.10",
           "Programming Language :: Python :: 3.11",
+          "Programming Language :: Python :: 3.12",
           "Programming Language :: Python :: Implementation :: CPython",
           "Programming Language :: Python :: Implementation :: PyPy",
           "Framework :: AsyncIO",

@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "python-dependency-injector"
+version = "4.42.0"
+description = "Dependency injection framework for Python"
+authors = ["Roman Mogylatov <rmogilatov@gmail.com>"]
+license = "BSD New"
+readme = "README.md"
+
+
+packages = [
+    { include = "src/dependency_injector" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+six = "^1.16.0"
+
+
+[tool.poetry.group.dev.dependencies]
+cython = "*"
+pytest = "*"
+pytest-asyncio = "*"
+tox = "*"
+coverage = "*"
+ruff = "*"
+pydocstyle = "*"
+mypy = "*"
+pyyaml = "*"
+httpx = "*"
+fastapi = "*"
+pydantic = "*"
+setuptools = "*"
+pydantic-settings = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+allow_subclassing_any = true
+allow_untyped_calls = true
+pretty = true
+show_error_codes = true
+implicit_reexport = true
+allow_untyped_decorators = true
+warn_unused_ignores = false
+warn_return_any = false
+namespace_packages = true
+disable_error_code = "attr-defined,valid-type"
+
+[tool.ruff]
+fix = true
+unsafe-fixes = true
+line-length = 120
+lint.select = ["ALL"]
+lint.ignore = ["EM", "FBT", "TRY003", "D1", "D203", "D213", "G004", "FA", "ANN101", "ANN102", "S311", "B008",]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint.isort]
+no-lines-before = ["standard-library", "local-folder"]
+known-third-party = []
+known-local-folder = []
+lines-after-imports = 2
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/*.py" = [
+    "S101",
+    "S311",
+    "RUF001",
+]

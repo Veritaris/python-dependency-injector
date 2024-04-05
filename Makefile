@@ -36,6 +36,9 @@ build: clean cythonize
 	# Compile C extensions
 	python setup.py build_ext --inplace
 
+create-package: build
+	poetry run python setup.py sdist
+
 docs-live:
 	sphinx-autobuild docs docs/_build/html
 
